@@ -10,7 +10,7 @@ import { MenuClosed } from "./icons/menu-closed";
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <header className="w-full flex justify-between gap-x-5 items-center p-4">
+    <header className="w-full flex justify-between gap-x-5 items-center p-4 max-w-3xl">
       <Link href="/">
         <Image
           src="/images/bb-logo.png"
@@ -22,9 +22,9 @@ export function Header() {
       </Link>
 
       <div className="flex justify-center gap-x-3 items-center">
-        <button className="bg-third text-white font-bold rounded-full px-2.5 py-2 text-sm">
+        <Link href={'?show=add-book'} className="bg-third text-white font-bold rounded-full px-2.5 py-2 text-sm">
           Vender libro
-        </button>
+        </Link>
         <ConnectButton />
 
         <div className="relative size-8 flex justify-center items-center">
@@ -40,25 +40,25 @@ export function Header() {
             />
           )}
 
-          <nav className="absolute right-0 top-10">
+          {isOpen && <nav className="absolute right-0 top-10">
             <ul className="flex flex-col justify-center items-start gap-y-3 bg-secondary rounded-lg p-3 min-w-32">
               <li>
-                <Link href="#">Inicio</Link>
+                <Link href="/">Inicio</Link>
               </li>
               <li>
-                <Link href="#">Mi perfil</Link>
+                <Link href="/mi-perfil">Mi perfil</Link>
               </li>
               <li>
-                <Link href="#">Mis libros</Link>
+                <Link href="/mis-libros">Mis libros</Link>
               </li>
               <li>
                 <Link href="#">Roadmap</Link>
               </li>
               <li>
-                <Link href="#">Asistente</Link>
+                <Link href="/asistente">Asistente</Link>
               </li>
             </ul>
-          </nav>
+          </nav>}
         </div>
       </div>
     </header>
