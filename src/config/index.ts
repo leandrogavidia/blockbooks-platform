@@ -2,9 +2,6 @@ import { defaultWagmiConfig } from "@web3modal/wagmi/react/config";
 
 import { cookieStorage, createStorage } from "wagmi";
 import {
-  mainnet,
-  sepolia,
-  scroll,
   polygonZkEvmCardona,
   scrollSepolia,
   polygonZkEvmTestnet,
@@ -23,9 +20,6 @@ const metadata = {
 };
 
 const chains = [
-  mainnet,
-  sepolia,
-  scroll,
   scrollSepolia,
   polygonZkEvmCardona,
   polygonZkEvmTestnet,
