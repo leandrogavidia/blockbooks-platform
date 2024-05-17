@@ -2,7 +2,7 @@
 
 La Libreria Digital Descentralizada
 
-**[Deploy](blockbooks-platform.vercel.app)**
+**[Demo](blockbooks-platform.vercel.app)**
 
 ## Contract Addresses
 
