@@ -34,7 +34,7 @@ export default function RootLayout({
       >
         <Web3ModalProvider initialState={initialState}>
           <Header />
-          <main className="w-full max-w-3xl">{children}</main>
+          <main className="w-full max-w-3xl px-4">{children}</main>
           <Footer />
         </Web3ModalProvider>
       </body>

@@ -6,8 +6,23 @@ import { ConnectButton } from "./connect-button";
 import { useState } from "react";
 import { MenuOpened } from "./icons/menu-opened";
 import { MenuClosed } from "./icons/menu-closed";
+import { useAccount, useReadContract } from "wagmi";
+import { abi } from "@/contracts/abi";
+import { contractAddresses } from "@/contracts";
 
 export function Header() {
+  const { address, chainId } = useAccount()
+  const result = useReadContract({
+    abi,
+    address: contractAddresses[chainId ? chainId as 421614: 0] as `0x${string}`,
+    functionName: 'getAddressCollectionIds',
+    chainId: chainId,
+    account: address
+  })
+
+  console.log(address)
+  console.log(result)
+  console.log(chainId)
   const [isOpen, setIsOpen] = useState(false);
   return (
     <header className="w-full flex justify-between gap-x-5 items-center p-4 max-w-3xl">

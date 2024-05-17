@@ -1,7 +1,7 @@
 import { MyBooks } from "../components/my-books"
 
-const MisLibros = () => {
+const MyBooksPage = () => {
   return (<MyBooks />)
 }
 
-export default MisLibros
+export default MyBooksPage
