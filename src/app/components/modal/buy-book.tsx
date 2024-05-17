@@ -43,7 +43,7 @@ export const BuyBookModal = () => {
               functionName: "mintNFT",
               chainId: chainId,
               account: address,
-              value: BigInt(10000000000000),
+              value: BigInt(10000000000000), 
               args: [
                 BigInt(1)
               ],
