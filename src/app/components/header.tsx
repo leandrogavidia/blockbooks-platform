@@ -56,7 +56,7 @@ export function Header() {
           )}
 
           {isOpen && <nav className="absolute right-0 top-10">
-            <ul className="flex flex-col justify-center items-start gap-y-3 bg-secondary rounded-lg p-3 min-w-32">
+            <ul className="z-50 flex flex-col justify-center items-start gap-y-3 bg-secondary rounded-lg p-3 min-w-32">
               <li>
                 <Link href="/">Inicio</Link>
               </li>
