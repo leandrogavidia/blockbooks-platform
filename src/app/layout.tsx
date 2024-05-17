@@ -26,7 +26,6 @@ export default function RootLayout({
   searchParams?: { [key: string]: string | string[] | undefined };
 }>) {
   const initialState = cookieToInitialState(config, headers().get("cookie"));
-  console.log(searchParams?.show);
 
   return (
     <html lang="en">
