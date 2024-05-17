@@ -36,7 +36,7 @@ const values = [
     },
   ]
 
-export const Perfil = () => {
+const Perfil = () => {
   return (
     <div>
         <h1 className="text-center text-2xl mb-7">Username</h1>
