@@ -34,7 +34,7 @@ export function Header() {
           alt="BlockBooks Logo"
           width={1080}
           height={800}
-          className="h-auto w-16"
+          className="h-auto w-32"
         />
       </Link>
 
