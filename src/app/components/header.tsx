@@ -11,18 +11,20 @@ import { abi } from "@/contracts/abi";
 import { contractAddresses } from "@/contracts";
 
 export function Header() {
-  const { address, chainId } = useAccount()
+  const { address, chainId } = useAccount();
   const result = useReadContract({
     abi,
-    address: contractAddresses[chainId ? chainId as 421614: 0] as `0x${string}`,
-    functionName: 'getAddressCollectionIds',
+    address: contractAddresses[
+      chainId ? (chainId as 421614) : 0
+    ] as `0x${string}`,
+    functionName: "getAddressCollectionIds",
     chainId: chainId,
-    account: address
-  })
+    account: address,
+  });
 
-  console.log(address)
-  console.log(result)
-  console.log(chainId)
+  console.log(address);
+  console.log(result);
+  console.log(chainId);
   const [isOpen, setIsOpen] = useState(false);
   return (
     <header className="w-full flex justify-between gap-x-5 items-center p-4 max-w-3xl">
@@ -37,9 +39,15 @@ export function Header() {
       </Link>
 
       <div className="flex justify-center gap-x-3 items-center">
-        <Link href={'?show=add-book'} className="bg-third text-white font-bold rounded-full px-2.5 py-2 text-sm">
-          Vender libro
-        </Link>
+        {address && (
+          <Link
+            href={"?show=add-book"}
+            className="bg-third text-white font-bold rounded-full px-2.5 py-2 text-sm"
+          >
+            Vender libro
+          </Link>
+        )}
+
         <ConnectButton />
 
         <div className="relative size-8 flex justify-center items-center">
@@ -55,25 +63,32 @@ export function Header() {
             />
           )}
 
-          {isOpen && <nav className="z-50 absolute right-0 top-10">
-            <ul className="flex flex-col justify-center items-start gap-y-3 bg-secondary rounded-lg p-3 min-w-32">
-              <li>
-                <Link href="/">Inicio</Link>
-              </li>
-              <li>
-                <Link href="/mi-perfil">Mi perfil</Link>
-              </li>
-              <li>
-                <Link href="/mis-libros">Mis libros</Link>
-              </li>
-              <li>
-                <Link href="/files/blockbooks-roadmap-2024-demo.pdf" download={true}>Roadmap</Link>
-              </li>
-              <li>
-                <Link href="/asistente">Asistente</Link>
-              </li>
-            </ul>
-          </nav>}
+          {isOpen && (
+            <nav className="z-50 absolute right-0 top-10">
+              <ul className="flex flex-col justify-center items-start gap-y-3 bg-secondary rounded-lg p-3 min-w-32">
+                <li>
+                  <Link href="/">Inicio</Link>
+                </li>
+                <li>
+                  <Link href="/mi-perfil">Mi perfil</Link>
+                </li>
+                <li>
+                  <Link href="/mis-libros">Mis libros</Link>
+                </li>
+                <li>
+                  <Link
+                    href="/files/blockbooks-roadmap-2024-demo.pdf"
+                    download={true}
+                  >
+                    Roadmap
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/asistente">Asistente</Link>
+                </li>
+              </ul>
+            </nav>
+          )}
         </div>
       </div>
     </header>
