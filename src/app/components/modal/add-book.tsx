@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useAccount, useWriteContract } from "wagmi";
 import { abi } from "@/contracts/abi";
 import { contractAddresses } from "@/contracts";
+import { parseEther } from "ethers"
 
 export const AddBookModal = () => {
   const { writeContract, data, status, isSuccess } = useWriteContract();
@@ -11,6 +12,7 @@ export const AddBookModal = () => {
 
   console.log("SELL", data);
   console.log("SELL STATUS", status);
+  console.log("ETHERS", parseEther("0.00001"))
 
   return (
     <>
@@ -58,8 +60,9 @@ export const AddBookModal = () => {
               chainId: chainId,
               account: address,
               args: [
-                "BBL TEST",
+                "BBL TEST 01",
                 "https://green-key-hummingbird-678.mypinata.cloud/ipfs/QmZ2iVb2Ka5pWtmTz3Ekq9n7tsqGE7PrmPFpEnCaTBX5Ds",
+                parseEther("0.00001")
               ],
             })
           }
