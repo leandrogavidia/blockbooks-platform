@@ -28,7 +28,7 @@ export function Chat() {
             height={20}
           />
           <span className="text-primary">
-            Hola, Soy Ana, tu asistente en BlockBoos, ¿Como puedo ayudarte?
+            Hola, Soy Ana, tu asistente en BlockBooks, ¿Como puedo ayudarte?
           </span>
         </p>
         {messages.map((message: Message) => {
