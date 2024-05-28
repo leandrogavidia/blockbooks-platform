@@ -76,6 +76,9 @@ export function Header() {
                   <Link href="/mis-libros">Mis libros</Link>
                 </li>
                 <li>
+                  <Link href="/eventos">Eventos</Link>
+                </li>
+                <li>
                   <Link
                     href="/files/blockbooks-roadmap-2024-demo.pdf"
                     download={true}
