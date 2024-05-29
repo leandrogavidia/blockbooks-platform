@@ -18,7 +18,8 @@ type Inputs = {
 };
 
 export const AddBookModal = () => {
-  const [currentCover, setCurrentCover] = useState("")
+  const [currentCover, setCurrentCover] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const { writeContract, data, status, isSuccess } = useWriteContract();
   const { address, chainId } = useAccount();
   const {
@@ -29,14 +30,37 @@ export const AddBookModal = () => {
   } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    const name = data.name
+    setIsLoading(true)
+    try {      
+      const name = data.name
+  
+      const weiPrice = parseEther(data.price)
+      console.log(data.price)
+      console.log(weiPrice)
+  
+      const imageFile  = data.cover[0]
+      const cover = await convertBase64(imageFile);
 
-    const weiPrice = parseEther(data.price)
-    console.log(data.price)
-    console.log(weiPrice)
+      writeContract({
+        abi,
+        address: contractAddresses[
+          chainId ? (chainId as 421614) : 0
+        ] as `0x${string}`,
+        functionName: "createCollection",
+        chainId: chainId,
+        account: address,
+        args: [
+          name,
+          "https://green-key-hummingbird-678.mypinata.cloud/ipfs/QmZ2iVb2Ka5pWtmTz3Ekq9n7tsqGE7PrmPFpEnCaTBX5Ds",
+          weiPrice,
+        ],
+      })
 
-    const imageFile  = data.cover[0]
-    const cover = await convertBase64(imageFile);
+      setIsLoading(false)
+    } catch (e) {
+      console.error(e)
+      setIsLoading(false)
+    }
   };
 
   console.log("SELL", data);
@@ -45,7 +69,7 @@ export const AddBookModal = () => {
   return (
     <>
       <h2 className="text-center text-black text-2xl">Añadir libro</h2>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} className={isLoading ? "pointer-events-none cursor-default select-none" : ""}>
         <div className="pt-6">
           <label htmlFor="name" className="font-semibold">
             Nombre
@@ -108,32 +132,11 @@ export const AddBookModal = () => {
           />
         </div>
         <div className="mt-20">
-          {/* <button
-            className="rounded-full border w-full mb-4 bg-primary border-primary text-white"
-            onClick={() =>
-              writeContract({
-                abi,
-                address: contractAddresses[
-                  chainId ? (chainId as 421614) : 0
-                ] as `0x${string}`,
-                functionName: "createCollection",
-                chainId: chainId,
-                account: address,
-                args: [
-                  "BBL TEST 01",
-                  "https://green-key-hummingbird-678.mypinata.cloud/ipfs/QmZ2iVb2Ka5pWtmTz3Ekq9n7tsqGE7PrmPFpEnCaTBX5Ds",
-                  parseEther("0.00001"),
-                ],
-              })
-            }
-          >
-            Confirmar
-          </button> */}
           <button
             type="submit"
             className="rounded-full border w-full mb-4 bg-primary border-primary text-white"
           >
-            Confirmar
+            { isLoading ? "Enviando..." : "Confirmar" }
           </button>
           <Link
             href={"?show="}

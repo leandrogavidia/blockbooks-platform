@@ -4,7 +4,7 @@ export const contractAddresses = {
     0: ""
 }
 
-export const unlockContractAddresses = {
-    11155111: "0x36b34e10295cCE69B652eEB5a8046041074515Da",
+export const Day0ContractAddresses = {
+    11155111: "0x723Da2D6Dd9Db21d850805Be17F4a6Dd318fBCf6",
     0: ""
 }

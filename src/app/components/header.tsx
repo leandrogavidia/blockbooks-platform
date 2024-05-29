@@ -6,26 +6,12 @@ import { ConnectButton } from "./connect-button";
 import { useState } from "react";
 import { MenuOpened } from "./icons/menu-opened";
 import { MenuClosed } from "./icons/menu-closed";
-import { useAccount, useReadContract } from "wagmi";
-import { abi } from "@/contracts/abi";
-import { contractAddresses } from "@/contracts";
+import { useAccount } from "wagmi";
 
 export function Header() {
-  const { address, chainId } = useAccount();
-  const result = useReadContract({
-    abi,
-    address: contractAddresses[
-      chainId ? (chainId as 421614) : 0
-    ] as `0x${string}`,
-    functionName: "getAddressCollectionIds",
-    chainId: chainId,
-    account: address,
-  });
-
-  console.log(address);
-  console.log(result);
-  console.log(chainId);
   const [isOpen, setIsOpen] = useState(false);
+  const { isConnected } = useAccount();
+
   return (
     <header className="w-full flex justify-between gap-x-5 items-center p-4 max-w-3xl">
       <Link href="/">
@@ -39,7 +25,7 @@ export function Header() {
       </Link>
 
       <div className="flex justify-center gap-x-3 items-center">
-        {address && (
+        {isConnected && (
           <Link
             href={"?show=add-book"}
             className="bg-third text-white font-bold rounded-full px-2.5 py-2 text-sm"
@@ -74,6 +60,9 @@ export function Header() {
                 </li>
                 <li>
                   <Link href="/mis-libros">Mis libros</Link>
+                </li>
+                <li>
+                  <Link href="/membresia">Membresia</Link>
                 </li>
                 <li>
                   <Link href="/eventos">Eventos</Link>
