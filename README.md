@@ -12,4 +12,4 @@ La Libreria Digital Descentralizada
 ## Stack
 
 - **Unlock Protocol:** Membresias y eventos
-- **ICP:** Almacenamiento de archivos
+- **ICP:** Almacenamiento de archivos 

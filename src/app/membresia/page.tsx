@@ -66,7 +66,7 @@ const MembershipPage = () => {
         </Link>
         <span>Existen un máximo de 100 membresias Day 0</span>
         <span>{Number(Day0totalSupply.data) as any} / 100</span>
-        <span>Precio: {Number(Day0Price.data) as any} USDC</span>
+        <span>Precio: {Number(Day0Price.data) as any / 10 ** 6} USDC</span>
       </section>
 
       <div className="h-[1px] w-full bg-gray-500 my-10"></div>
@@ -82,7 +82,7 @@ const MembershipPage = () => {
           <div className="bg-primary rounded-2xl p-5 flex flex-col justify-center items-start gap-y-4 shadow-lg text-white">
             <h3>Membresia BlockBooks Mensual</h3>
             <p>
-              <span className="text-third">Precio:</span> 20 USDC
+              <span className="text-third">Precio:</span> 12 USDC
             </p>
             <Link
               className="bg-gray-300 w-full rounded-full text-gray-600 flex justify-center items-center py-2 cursor-default pointer-events-none select-none"
@@ -94,7 +94,7 @@ const MembershipPage = () => {
           <div className="bg-primary rounded-2xl p-5 flex flex-col justify-center items-start gap-y-4 shadow-lg text-white">
             <h3>Membresia BlockBooks Anual</h3>
             <p>
-              <span className="text-third">Precio:</span> 200 USDC (Ahorra 40
+              <span className="text-third">Precio:</span> 100 USDC (Ahorra 44
               USDC)
             </p>
             <Link

@@ -15,7 +15,7 @@ export function EventCard({
   link: string;
 }) {
   return (
-    <div className="mb-4 rounded-se-xl rounded-ss-xl overflow-hidden w-full">
+    <div className="mb-4 rounded-se-xl rounded-ss-xl overflow-hidden w-full max-w-[320px]">
       <Image
         src={image}
         alt={`${title}'s s book cover`}

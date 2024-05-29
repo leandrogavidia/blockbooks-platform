@@ -55,15 +55,19 @@ export function Header() {
                 <li>
                   <Link href="/">Inicio</Link>
                 </li>
-                <li>
-                  <Link href="/mi-perfil">Mi perfil</Link>
-                </li>
-                <li>
-                  <Link href="/mis-libros">Mis libros</Link>
-                </li>
-                <li>
-                  <Link href="/membresia">Membresia</Link>
-                </li>
+                {isConnected && (
+                  <>
+                    <li>
+                      <Link href="/mi-perfil">Mi perfil</Link>
+                    </li>
+                    <li>
+                      <Link href="/mis-libros">Mis libros</Link>
+                    </li>
+                    <li>
+                      <Link href="/membresia">Membresia</Link>
+                    </li>
+                  </>
+                )}
                 <li>
                   <Link href="/eventos">Eventos</Link>
                 </li>
