@@ -35,12 +35,12 @@ const MembershipPage = () => {
           ¡Sé miembro de BlockBooks y obten beneficios exclusivos!
         </h1>
         <h2 className="text-2xl text-center">
-          Tener la membresia de BlockBooks te dara:{" "}
+            Beneficios por tener la membresía de BlockBooks:{" "}
         </h2>
         <ul className="flex flex-col justify-center items-start gap-y-4 w-full bg-third shadow-xl rounded-xl p-4">
-          <li>Poder leer cualquier libro hasta la caducidad de tu membresia</li>
-          <li>Eventos exclusivos para miembros</li>
-          <li>Membresia a clubes de lecturas</li>
+          <li>- Leer cualquier libro hasta la caducidad de tu membresía</li>
+          <li>- Acceso a eventos exclusivos para miembros </li>
+          <li>- Acceso y membresía a clubes de lectura</li>
         </ul>
       </section>
 
